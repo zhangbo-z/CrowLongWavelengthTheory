@@ -71,5 +71,7 @@ ylabel('$\sigma^*$','Interpreter','latex')
 
 fileID1 = fopen('CrowTheory-Result-wavenumber.dat','w');
 fileID2 = fopen('CrowTheory-Result-wavelength.dat','w');
-fprintf(fileID1,'%6.2f %12.8f %12.8f\r\n',beta,sigmaS_real_plot,sigmaA_real_plot);
-fprintf(fileID2,'%6.2f %12.8f %12.8f\r\n',2*pi./beta,sigmaS_real_plot,sigmaA_real_plot);
+for i = 1:length(beta)
+    fprintf(fileID1,'%6.2f %12.8f %12.8f\n',beta(i),sigmaS_real_plot(i),sigmaA_real_plot(i));
+    fprintf(fileID2,'%6.2f %12.8f %12.8f\n',2*pi./beta(i),sigmaS_real_plot(i),sigmaA_real_plot(i));
+end
